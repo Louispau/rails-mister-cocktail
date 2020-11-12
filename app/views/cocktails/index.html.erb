@@ -1,7 +1,19 @@
 <h1>Cocktails</h1>
-<ul>
-  <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+<div class="container">
+  <% @cocktails.each_slice(3) do |cocktails| %>
+    <div class="row no-gutters">
+      <% cocktails.each do |cocktail| %>
+        <div class="col-4">
+          <div class="card m-1 border-0">
+            <img class="card-img" src="<%= cocktail.image_url %>" alt="cocktail image">
+            <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center">
+              <h5 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail), :style=> 'color: white;' %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <% end %>
-</ul>
-<%= link_to 'create new restaurant', new_cocktail_path %>
+</div>
+
+<%= link_to 'Add New Cocktail', new_cocktail_path %>

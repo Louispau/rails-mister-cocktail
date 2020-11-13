@@ -1,3 +1,4 @@
+<div class="cocktails_index">
 <h1>Cocktails</h1>
  <div class="container">
    <% @cocktails.each_slice(3) do |cocktails| %>
@@ -13,5 +14,5 @@
      </div>
    <% end %>
  </div>
-
  <%= link_to 'Add New Cocktail', new_cocktail_path %>
+</div>
